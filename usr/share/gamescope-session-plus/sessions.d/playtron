@@ -1,0 +1,13 @@
+#! /bin/bash
+
+OAUTH_RESPONSE_TYPE=code
+OAUTH_CHALLENGE_METHOD=S256
+OAUTH_CLIENT_ID="964c8802-eeaa-4e70-8783-6e65d019d7c6"
+OAUTH_SCOPE="offline openid"
+OAUTH_REDIRECT_URI="http://localhost:1420/auth/callback"
+OAUTH_SERVER_BASE_URL="https://oauth2.playtron.red/oauth2"
+OAUTH_SERVER_TOKEN_URL="https://oauth2.playtron.red/oauth2/token"
+OAUTH_CLIENT_SERVER_PORT=1420
+OAUTH_GRANT_TYPE="authorization_code"
+PLAYTRON_GAMESCOPE_SESSION=1
+CLIENTCMD="playtron"

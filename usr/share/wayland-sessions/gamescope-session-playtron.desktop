@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Playtron
+Comment=Playtron Session for PlaytronOS
+Exec=gamescope-session-plus playtron
+Type=Application
+DesktopNames=gamescope
