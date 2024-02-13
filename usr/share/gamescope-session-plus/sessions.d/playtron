@@ -10,4 +10,4 @@ OAUTH_SERVER_TOKEN_URL="https://oauth2.playtron.red/oauth2/token"
 OAUTH_CLIENT_SERVER_PORT=1420
 OAUTH_GRANT_TYPE="authorization_code"
 PLAYTRON_GAMESCOPE_SESSION=1
-CLIENTCMD="playtron"
+CLIENTCMD="grid"
