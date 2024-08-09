@@ -11,3 +11,13 @@ OAUTH_CLIENT_SERVER_PORT=1420
 OAUTH_GRANT_TYPE="authorization_code"
 PLAYTRON_GAMESCOPE_SESSION=1
 CLIENTCMD="grid"
+FACTORY_RESET_SENTINEL="/tmp/playtron-factory-reset-sentinel"
+
+
+post_client_shutdown() {
+	if [[ -e "$FACTORY_RESET_SENTINEL" ]]; then
+		OPTION=$(cat $FACTORY_RESET_SENTINEL)
+	        rm -f "$FACTORY_RESET_SENTINEL"
+		pkexec playtron-factory-reset $OPTION
+	fi
+}
