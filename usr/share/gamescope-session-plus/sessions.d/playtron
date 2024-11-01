@@ -17,12 +17,14 @@ if lspci | grep -i vga | grep -i nvidia > /dev/null; then
 	# required for Nvidia GPUs to work with webview
 	# breaks webview for AMD and Intel GPUs
 	WEBKIT_DISABLE_DMABUF_RENDERER=1
+else
+	WEBKIT_DISABLE_DMABUF_RENDERER=0
 fi
 
 post_client_shutdown() {
 	if [[ -e "$FACTORY_RESET_SENTINEL" ]]; then
 		OPTION=$(cat $FACTORY_RESET_SENTINEL)
 	        rm -f "$FACTORY_RESET_SENTINEL"
-		pkexec playtron-factory-reset $OPTION
+		pkexec env WEBKIT_DISABLE_DMABUF_RENDERER=$WEBKIT_DISABLE_DMABUF_RENDERER playtron-factory-reset $OPTION
 	fi
 }
