@@ -25,6 +25,6 @@ post_client_shutdown() {
 	if [[ -e "$FACTORY_RESET_SENTINEL" ]]; then
 		OPTION=$(cat $FACTORY_RESET_SENTINEL)
 	        rm -f "$FACTORY_RESET_SENTINEL"
-		pkexec env WEBKIT_DISABLE_DMABUF_RENDERER=$WEBKIT_DISABLE_DMABUF_RENDERER playtron-factory-reset $OPTION
+		pkexec playtron-factory-reset $OPTION
 	fi
 }
