@@ -7,17 +7,17 @@ if [ $EUID -ne 0 ]; then
 fi
 
 
-SESSION_OVERRIDE="/etc/lightdm/lightdm.conf.d/60-playtron-session-override.conf"
+SESSION_OVERRIDE="/etc/sddm.conf.d/60-playtron-session-override.conf"
 SESSION_LIST=('user' 'dev')
 SELECTED_SESSION="$1"
 
 
 function dev() {
-	mkdir -p /etc/lightdm/lightdm.conf.d
+	mkdir -p $(dirname $SESSION_OVERRIDE)
 
 	echo '
-[Seat:*]
-autologin-session=weston
+[Autologin]
+Session=weston
 ' > ${SESSION_OVERRIDE}
 }
 
@@ -74,4 +74,4 @@ else
 	exit 1
 fi
 
-systemctl restart lightdm
+systemctl restart display-manager
