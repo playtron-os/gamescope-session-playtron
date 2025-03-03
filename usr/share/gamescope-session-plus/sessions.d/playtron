@@ -13,6 +13,10 @@ PLAYTRON_GAMESCOPE_SESSION=1
 CLIENTCMD="grid"
 FACTORY_RESET_SENTINEL="/tmp/playtron-factory-reset-sentinel"
 
+if command -v /usr/libexec/playtron/dev-session-trigger > /dev/null; then
+	/usr/libexec/playtron/dev-session-trigger &
+fi
+
 if lspci | grep -i vga | grep -i nvidia > /dev/null; then
 	# required for Nvidia GPUs to work with webview
 	# breaks webview for AMD and Intel GPUs
