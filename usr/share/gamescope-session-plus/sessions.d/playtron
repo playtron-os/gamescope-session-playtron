@@ -13,6 +13,10 @@ PLAYTRON_GAMESCOPE_SESSION=1
 CLIENTCMD="grid"
 FACTORY_RESET_SENTINEL="/tmp/playtron-factory-reset-sentinel"
 
+# remove the potentially large disk stress test file
+# in case it was left behind by the stress test tool
+rm -f /var/home/playtron/stress-test-disk.dat
+
 if command -v /usr/libexec/playtron/dev-session-trigger > /dev/null; then
 	/usr/libexec/playtron/dev-session-trigger &
 fi
