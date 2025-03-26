@@ -17,7 +17,8 @@ FACTORY_RESET_SENTINEL="/tmp/playtron-factory-reset-sentinel"
 # in case it was left behind by the stress test tool
 rm -f /var/home/playtron/stress-test-disk.dat
 
-if command -v /usr/libexec/playtron/dev-session-trigger > /dev/null; then
+if [[ ! -e "$HOME/.local/share/playtron/tools" ]] && command -v /usr/libexec/playtron/dev-session-trigger > /dev/null; then
+	# only launch the dev session trigger script if the FTUE has not been completed
 	/usr/libexec/playtron/dev-session-trigger &
 fi
 
