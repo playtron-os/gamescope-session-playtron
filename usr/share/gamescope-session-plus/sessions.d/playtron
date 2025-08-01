@@ -26,8 +26,10 @@ if lspci | grep -i vga | grep -i nvidia > /dev/null; then
 	# required for Nvidia GPUs to work with webview
 	# breaks webview for AMD and Intel GPUs
 	WEBKIT_DISABLE_DMABUF_RENDERER=1
+	GAMESCOPE_DISABLE_EXPLICIT_SYNC=1
 else
 	WEBKIT_DISABLE_DMABUF_RENDERER=0
+	GAMESCOPE_DISABLE_EXPLICIT_SYNC=0
 fi
 
 post_client_shutdown() {
